@@ -1,0 +1,54 @@
+.aboutContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.aboutMe {
+  width: 100%;
+  border-radius: 1rem;
+  position: relative;
+  border: 2px solid var(--color-primary-solid);
+}
+
+.aboutMeImage {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.aboutMe:hover .aboutMeImage {
+  transform: translate(-8px, -8px);
+}
+
+.aboutMeImage img {
+  width: 100%;
+  display: block;
+}
+
+.aboutContent p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.aboutContent p strong {
+  color: var(--color-primary-solid);
+}
+@media screen and (max-width: 1024px) {
+  .aboutContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .aboutMe {
+    width: 60%;
+    margin: 2rem auto 4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .aboutMe {
+    width: 80%;
+  }
+}

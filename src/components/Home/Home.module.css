@@ -1,0 +1,45 @@
+.homeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.content {
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.greeting {
+  font-size: 1.2rem;
+  color: var(--color-primary-solid);
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.tagline {
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+  color: var(--color-text-secondary);
+}
+
+.cta {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}

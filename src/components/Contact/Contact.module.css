@@ -1,0 +1,52 @@
+.title {
+  margin-bottom: 2rem;
+}
+
+.contactContainer {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contactSocials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contactSocials a {
+  font-size: 1.8rem;
+  color: var(--color-text-secondary);
+  transition: var(--transition);
+}
+
+.contactSocials a:hover {
+  color: var(--color-primary-solid);
+  transform: translateY(-3px);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  resize: none;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--color-primary-solid);
+  box-shadow: 0 0 0 2px rgba(254, 81, 150, 0.2);
+}
