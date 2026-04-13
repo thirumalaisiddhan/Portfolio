@@ -720,9 +720,10 @@ img {
 
     .nav-menu {
         position: absolute;
-        top: 120%;
+        top: 110%;
         left: 0;
         right: 0;
+        width: 100%;
         background: #fff;
         flex-direction: column;
         gap: 0;
@@ -733,9 +734,9 @@ img {
         visibility: hidden;
         transform: translateY(-10px);
         transition: var(--transition);
-        width: 100%;
         padding: 10px 0;
         z-index: 1001;
+        overflow: hidden; /* Keeps the dropdown corners perfectly round */
     }
 
     .nav-menu.active {
@@ -749,12 +750,18 @@ img {
     }
 
     .navLinks {
+        display: block; /* This fixes the cut-off background box! */
         text-align: center;
         padding: 15px;
         border-radius: 0;
         font-size: 1.1rem;
-        border-bottom: 1px solid #e0e7ff;
+        border-bottom: 1px solid #f4f9fd;
         color: var(--text-color);
+        width: 100%;
+    }
+    
+    .navLinks:hover {
+        background-color: rgba(0, 98, 255, 0.05); /* Soft blue highlight */
     }
 
     /* Fixed Profile Image & Hero Alignment */
