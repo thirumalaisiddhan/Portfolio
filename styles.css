@@ -833,14 +833,10 @@ section {
     }
 
     .my-name {
-        font-size: 2.4rem; /* You may need to reduce this further if the name is long */
+        font-size: 2.4rem;
         line-height: 1.2;
         margin-bottom: 10px;
-        /* CHANGE THIS LINE FROM 'normal' TO 'nowrap' */
-        white-space: nowrap !important; 
-        /* Add this to prevent it from cutting off if it's too wide */
-        overflow: hidden;
-        text-overflow: ellipsis; 
+        white-space: normal !important;
     }
 
     .skills-grid {
