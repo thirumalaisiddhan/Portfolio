@@ -412,32 +412,41 @@ section {
 .image-modal {
     display: none; 
     position: fixed;
-    z-index: 9999; /* Higher z-index to stay above everything */
+    z-index: 2000; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
+    background-color: rgba(15, 23, 42, 0.95); 
+    backdrop-filter: blur(10px);
     opacity: 0;
     transition: opacity 0.3s ease;
-    justify-content: center; /* Center the image */
-    align-items: center;
+    
+    /* CRITICAL FOR ANDROID ALIGNMENT */
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 .image-modal.show {
-    display: flex;
+    display: flex !important; /* Forces flexbox centering when shown */
     opacity: 1;
 }
 
 .modal-content {
-    max-width: 90%;
-    max-height: 80vh;
-    border: 4px solid #fff;
+    max-width: 95%;
+    max-height: 70vh; /* Prevents overflow on mobile screens */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border: 3px solid #fff;
     border-radius: 8px;
-    transform: scale(0.8);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: scale(0.9);
     transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
 }
 
 .image-modal.show .modal-content {
@@ -447,26 +456,34 @@ section {
 #caption {
     margin-top: 20px;
     color: #f8fafc;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
+    text-align: center;
+    width: 90%;
 }
 
 .close-modal {
     position: absolute;
-    top: 30px;
-    right: 40px;
+    top: 20px;
+    right: 20px;
     color: #fff;
-    font-size: 50px;
-    font-weight: bold;
+    font-size: 45px;
+    background: rgba(0,0,0,0.5);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
     cursor: pointer;
+    z-index: 10000;
 }
 
 .close-modal:hover {
     color: var(--google-red);
 }
 
-/* ================= Education Timeline ================= */
-/* ================= Education Cards (New Design) ================= */
+/* ================= Education Cards ================= */
 .edu-badge {
     display: inline-block;
     background-color: rgba(0, 98, 255, 0.08);
@@ -558,6 +575,7 @@ section {
     margin-right: 5px;
     color: #a0aec0;
 }
+
 .edu-board {
     color: var(--text-muted);
     font-size: 0.85rem;
@@ -582,11 +600,6 @@ section {
 
 .edu-meta i {
     margin-right: 5px;
-}
-
-.edu-grade {
-    color: var(--google-yellow);
-    font-weight: 700;
 }
 
 .edu-progress {
@@ -660,7 +673,7 @@ section {
     align-items: center;
     width: 32px;
     height: 32px;
-    background-color: var(--text-color); 
+    background-color: var(--text-color);
     color: #ffffff;
     border-radius: 50%;
     text-decoration: none;
@@ -707,8 +720,8 @@ section {
 .modern-form textarea {
     width: 100%;
     padding: 15px 20px;
-    background-color: #f8fafc; 
-    border: 1px solid transparent; 
+    background-color: #f8fafc;
+    border: 1px solid transparent;
     border-radius: 8px;
     font-family: inherit;
     font-size: 0.95rem;
@@ -725,7 +738,7 @@ section {
 }
 
 .btn-dark-submit {
-    background-color: #0f172a; 
+    background-color: #0f172a;
     color: #ffffff;
     border: none;
     padding: 16px;
@@ -744,32 +757,117 @@ section {
 
 /* ================= Mobile Optimizations ================= */
 @media (max-width: 768px) {
-    .header { padding: 10px 15px; }
-    .navbar { padding: 12px 20px; border-radius: 20px; }
-    .menu-toggle { display: block; }
+    .header {
+        padding: 10px 15px;
+    }
+
+    .navbar {
+        padding: 12px 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0, 98, 255, 0.08);
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: 0;
+        color: var(--text-color);
+    }
 
     .nav-menu {
         position: absolute;
-        top: 110%; left: 0; right: 0;
+        top: 110%;
+        left: 0;
+        right: 0;
+        width: 100%;
         background: #fff;
         flex-direction: column;
-        opacity: 0; visibility: hidden;
+        gap: 0;
+        border-radius: 12px;
+        box-shadow: var(--shadow-2);
+        border: 1px solid var(--card-border);
+        opacity: 0;
+        visibility: hidden;
         transform: translateY(-10px);
         transition: var(--transition);
-        box-shadow: var(--shadow-2);
+        padding: 10px 0;
         z-index: 1001;
+        overflow: hidden;
     }
 
-    .nav-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 
-    .navLinks { display: block; text-align: center; padding: 15px; border-bottom: 1px solid #f4f9fd; }
+    .navLinks {
+        display: block;
+        text-align: center;
+        padding: 15px;
+        border-radius: 0;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #f4f9fd;
+        color: var(--text-color);
+        width: 100%;
+    }
+    
+    #home {
+        padding-top: 110px;
+    }
 
-    #home { padding-top: 110px; }
-    .home-content { flex-direction: column-reverse; text-align: center; }
-    .profile-img { width: 240px; height: 240px; }
-    .my-name { font-size: 2.4rem; white-space: normal !important; }
+    .home-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 1.5rem;
+    }
 
-    .skills-grid { grid-template-columns: repeat(2, 1fr); }
-    .contact-card-modern { flex-direction: column; }
-    .contact-info, .contact-form-wrapper { padding: 2rem 1.5rem; }
+    .profile-img {
+        width: 240px;
+        height: 240px;
+        margin: 0 auto;
+    }
+
+    .my-name {
+        font-size: 2.4rem;
+        line-height: 1.2;
+        margin-bottom: 10px;
+        white-space: normal !important;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 1rem;
+    }
+
+    .contact-card-modern {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        padding: 2rem 1.5rem 1rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 1rem 1.5rem 2rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .modal-content {
+        max-height: 60vh; /* Reduced height for smaller mobile screens */
+    }
+    
+    .close-modal {
+        top: 15px;
+        right: 15px;
+        font-size: 35px;
+    }
 }
