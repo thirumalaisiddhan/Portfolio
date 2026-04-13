@@ -694,23 +694,33 @@ img {
 }
 
 /* ================= Mobile Optimizations ================= */
+/* ================= Mobile Optimizations ================= */
 @media (max-width: 768px) {
+    /* Fixed Navbar Alignment */
+    .header {
+        padding: 10px 15px;
+    }
+
     .navbar {
         padding: 12px 20px;
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 98, 255, 0.08);
         border: none;
+        display: flex;
+        justify-content: space-between; /* Forces logo left, menu right */
+        align-items: center;
+        position: relative; /* Keeps the dropdown menu aligned to the navbar */
     }
 
     .menu-toggle {
         display: block;
-        margin-left: auto;
+        margin-left: 0; /* Removed auto margin to fix alignment */
         color: var(--text-color);
     }
 
     .nav-menu {
         position: absolute;
-        top: 110%;
+        top: 120%;
         left: 0;
         right: 0;
         background: #fff;
@@ -723,6 +733,9 @@ img {
         visibility: hidden;
         transform: translateY(-10px);
         transition: var(--transition);
+        width: 100%;
+        padding: 10px 0;
+        z-index: 1001;
     }
 
     .nav-menu.active {
@@ -744,11 +757,29 @@ img {
         color: var(--text-color);
     }
 
+    /* Fixed Profile Image & Hero Alignment */
+    #home {
+        padding-top: 110px; /* Reduced top padding for mobile */
+    }
+
     .home-content {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Flips layout: Image on TOP, Text on BOTTOM */
         text-align: center;
         gap: 1.5rem;
-        padding-top: 20px;
+        padding-top: 0px;
+    }
+
+    .home-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-img {
+        width: 240px;
+        height: 240px;
+        margin: 0 auto; /* Centers the image perfectly */
     }
 
     .home-text {
@@ -756,6 +787,7 @@ img {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 
     .my-name {
@@ -794,7 +826,7 @@ img {
     .social-links {
         justify-content: center;
         gap: 15px;
-        margin-top: 30px;
+        margin-top: 25px;
     }
 
     .social-icon {
@@ -804,16 +836,11 @@ img {
         box-shadow: none;
     }
 
-    .profile-img {
-        width: 200px;
-        height: 200px;
-        margin-top: 20px;
-    }
-
     section {
         padding: 80px 15px 50px;
     }
 
+    /* Timeline Adjustments for Mobile */
     .timeline-container::after {
         left: 20px;
     }
@@ -844,7 +871,8 @@ img {
 
     /* Modal adjustments for small screens */
     .modal-content {
-        width: 95%;
+        max-width: 95%;
+        max-height: 75vh;
     }
     .close-modal {
         top: 15px;
