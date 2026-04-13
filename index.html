@@ -106,15 +106,15 @@
             <h1 class="section-title">Certifications</h1>
             <div class="cert-grid">
                 <div class="cert-card">
-                    <div class="cert-img-wrapper"><img src="Java Full-stack.jpeg" class="cert-img" alt="Java Cert"></div>
+                    <div class="cert-img-wrapper"><img src="Java Full-stack.jpeg" class="cert-img" alt="Java Full Stack Internship"></div>
                     <div class="cert-info"><h3>Java Full Stack Internship</h3><p>EduSkills & AICTE</p></div>
                 </div>
                 <div class="cert-card">
-                    <div class="cert-img-wrapper"><img src="HCL GUVI Certification - M04VX6m0b36pc111w7.jpg" class="cert-img" alt="Java Cert"></div>
+                    <div class="cert-img-wrapper"><img src="HCL GUVI Certification - M04VX6m0b36pc111w7.jpg" class="cert-img" alt="Java Completion Certificate"></div>
                     <div class="cert-info"><h3>Java Completion</h3><p>GUVI / HCL</p></div>
                 </div>
                 <div class="cert-card">
-                    <div class="cert-img-wrapper"><img src="Cloud computing.jfif" class="cert-img" alt="Cloud Cert"></div>
+                    <div class="cert-img-wrapper"><img src="Cloud computing.jfif" class="cert-img" alt="Cloud Computing Elite Certification"></div>
                     <div class="cert-info"><h3>Cloud Computing (Elite)</h3><p>NPTEL (IIT Kharagpur)</p></div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
                     <h3 class="edu-degree">B.E. Computer Science Engineering</h3>
                     <p class="edu-school">K S R Institution for Engineering and Technology</p>
                     <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Tiruchengode, Tamil Nadu</p>
-                    <div class="edu-meta"><span>2023 – 2027</span><span>CGPA: 7.9 / 10</span></div>
+                    <div class="edu-meta"><span>2023 – 2027</span><span>CGPA: 7.91 / 10</span></div>
                     <div class="edu-progress"><div class="edu-progress-bar" style="width: 79%;"></div></div>
                 </div>
                 <div class="edu-card">
@@ -236,6 +236,28 @@
                     });
             });
 
+            // Lightbox Modal Logic
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("modal-img");
+            const captionText = document.getElementById("caption");
+            
+            document.querySelectorAll(".cert-img").forEach(img => {
+                img.onclick = function() {
+                    modal.style.display = "flex"; 
+                    setTimeout(() => modal.classList.add("show"), 10);
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+            });
+
+            const closeModalFunc = () => {
+                modal.classList.remove("show");
+                setTimeout(() => { modal.style.display = "none"; }, 300);
+            };
+
+            document.querySelector(".close-modal").onclick = closeModalFunc;
+            window.onclick = (event) => { if (event.target == modal) closeModalFunc(); };
+
             // Typing Effect
             const textElement = document.querySelector('.change-content');
             const words = ['Software Engineer', 'Full Stack Developer', 'Problem Solver'];
@@ -255,13 +277,6 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const navMenu = document.getElementById('nav-menu');
             mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
-
-            const modal = document.getElementById("image-modal");
-            const modalImg = document.getElementById("modal-img");
-            document.querySelectorAll(".cert-img").forEach(img => {
-                img.onclick = function() { modal.style.display = "block"; modalImg.src = this.src; }
-            });
-            document.querySelector(".close-modal").onclick = () => modal.style.display = "none";
         });
     </script>
 </body>
