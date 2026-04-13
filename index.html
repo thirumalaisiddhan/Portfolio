@@ -2,20 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#f8f9fa"> 
     <title>Thirumalai Siddhan | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
-        <nav class="navbar">
-            <a href="#home" class="navLinks">Home</a>
-            <a href="#about" class="navLinks">About</a>
-            <a href="#education" class="navLinks">Education</a>
-            <a href="#projects" class="navLinks">Projects</a>
-            <a href="#certifications" class="navLinks">Certifications</a>
-            <a href="#contact" class="navLinks">Contact</a>
+        <nav class="navbar" id="navbar">
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="navLinks">Home</a></li>
+                <li><a href="#about" class="navLinks">About</a></li>
+                <li><a href="#education" class="navLinks">Education</a></li>
+                <li><a href="#projects" class="navLinks">Projects</a></li>
+                <li><a href="#certifications" class="navLinks">Certifications</a></li>
+                <li><a href="#contact" class="navLinks">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -127,7 +133,7 @@
                 </div>
                 <div class="cert-card">
                     <div class="cert-img-wrapper">
-                        <img src="HCL GUVI Certification.png" class="cert-img" alt="Java Completion Certificate">
+                        <img src="HCL GUVI Certification - M04VX6m0b36pc111w7.jpg" class="cert-img" alt="Java Completion Certificate">
                     </div>
                     <div class="cert-info">
                         <h3>Java Completion Certificate</h3>
@@ -221,8 +227,31 @@
 
                 setTimeout(typeEffect, typeSpeed);
             }
-
             typeEffect();
+
+            // --- 3. Mobile Menu Toggle ---
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinksArray = document.querySelectorAll('.navLinks');
+
+            mobileMenu.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = mobileMenu.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            navLinksArray.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenu.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                });
+            });
         });
     </script>
 </body>
