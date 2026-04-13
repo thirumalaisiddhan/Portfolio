@@ -289,32 +289,6 @@
             document.querySelector(".close-modal").onclick = closeModal;
             window.onclick = (event) => { if (event.target == modal) closeModal(); };
         });
-        document.addEventListener("DOMContentLoaded", () => {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.navLinks');
-
-    // 1. Existing Toggle Logic
-    mobileMenu.addEventListener('click', () => { 
-        navMenu.classList.toggle('active'); 
-    });
-
-    // 2. NEW: Auto-close logic for Android/Mobile
-    // This loops through every link and removes the 'active' class when clicked
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        });
-    });
-
-    // 3. OPTIONAL: Close menu if user clicks anywhere outside the navbar
-    document.addEventListener('click', (event) => {
-        const isClickInside = navMenu.contains(event.target) || mobileMenu.contains(event.target);
-        if (!isClickInside && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-        }
-    });
-});
     </script>
 </body>
 </html>
