@@ -620,77 +620,145 @@ img {
 }
 
 /* ================= Contact Section ================= */
-.contact-subtitle {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    color: var(--text-muted);
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
+/* ================= Contact Section (Split Layout) ================= */
+.contact-card-modern {
+    display: flex;
     background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: var(--shadow-2);
     border: 1px solid var(--card-border);
-    padding: 3rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow-1);
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.input-group {
+/* Left Side: Info */
+.contact-info {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.info-group {
     margin-bottom: 1.5rem;
 }
 
-.contact-form input, .contact-form textarea {
+.info-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.info-text {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.social-links-small {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.social-links-small a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--text-color); /* Dark circles like the image */
+    color: #ffffff;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.social-links-small a:hover {
+    background-color: var(--google-blue);
+    transform: translateY(-3px);
+}
+
+/* Right Side: Form */
+.contact-form-wrapper {
+    flex: 1.5;
+    padding: 3rem;
+    background-color: #ffffff;
+}
+
+.modern-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.input-col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.input-col label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.modern-form input, 
+.modern-form textarea {
     width: 100%;
     padding: 15px 20px;
-    border: 1px solid var(--card-border);
-    border-radius: 4px;
+    background-color: #f8fafc; /* Very soft gray */
+    border: 1px solid transparent; /* No border initially */
+    border-radius: 8px;
     font-family: inherit;
-    font-size: 1rem;
-    background: transparent;
+    font-size: 0.95rem;
     color: var(--text-color);
     transition: var(--transition);
 }
 
-.contact-form input:focus, .contact-form textarea:focus {
+.modern-form input:focus, 
+.modern-form textarea:focus {
     outline: none;
-    border: 2px solid var(--google-blue);
-    padding: 14px 19px;
-    background-color: #f4f9fd;
+    background-color: #ffffff;
+    border: 1px solid var(--google-blue);
+    box-shadow: 0 0 0 4px rgba(0, 98, 255, 0.1);
 }
 
-.submit-btn {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.1rem;
+.btn-dark-submit {
+    background-color: #0f172a; /* Near Black */
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
 }
 
-/* ================= Footer ================= */
-.footer {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #e0e7ff; 
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    border-top: 1px solid var(--card-border);
-}
-
-.footer p { margin: 5px 0; }
-
-/* ================= Animations ================= */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-up {
-    animation: fadeInUp 0.6s ease-out forwards;
+.btn-dark-submit:hover {
+    background-color: var(--google-blue);
+    box-shadow: var(--shadow-2);
 }
 
 /* ================= Mobile Optimizations ================= */
@@ -885,5 +953,26 @@ img {
         top: 15px;
         right: 20px;
         font-size: 35px;
+    }
+    /* Mobile adjustments for New Contact Form */
+    .contact-card-modern {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        padding: 2rem 1.5rem 1rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 1rem 1.5rem 2rem;
+    }
+
+    .form-row {
+        flex-direction: column; /* Stacks the Name and Email inputs */
+        gap: 1.5rem;
+    }
+    
+    .contact-info h2 {
+        font-size: 2rem;
     }
 }
