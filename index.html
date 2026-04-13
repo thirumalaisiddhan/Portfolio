@@ -130,14 +130,14 @@
                     <div class="edu-card-header"><div class="edu-icon"><i class="fas fa-university"></i></div><span class="edu-status">Current</span></div>
                     <h3 class="edu-degree">B.E. Computer Science Engineering</h3>
                     <p class="edu-school">K S R Institution for Engineering and Technology</p>
-                    <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Tiruchengode, Tamil Nadu</p>
-                    <div class="edu-meta"><span>2023 – 2027</span><span>CGPA: 7.91 / 10</span></div>
+                    <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Namakkal, Tamil Nadu</p>
+                    <div class="edu-meta"><span>2023 – 2027</span><span>CGPA: 7.9 / 10</span></div>
                     <div class="edu-progress"><div class="edu-progress-bar" style="width: 79%;"></div></div>
                 </div>
                 <div class="edu-card">
                     <div class="edu-card-header"><div class="edu-icon"><i class="fas fa-school"></i></div></div>
                     <h3 class="edu-degree">Higher Secondary (12th Grade)</h3>
-                    <p class="edu-school">Aacharya Higher Secondary School</p>
+                    <p class="edu-school">Acharya Hr. Sec School</p>
                     <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Edappadi, Salem, Tamil Nadu</p>
                     <div class="edu-meta"><span>Completed 2023</span><span>70.6%</span></div>
                     <p class="edu-board"><i class="fas fa-award"></i> State Board (Tamil Nadu)</p>
@@ -146,7 +146,7 @@
                 <div class="edu-card">
                     <div class="edu-card-header"><div class="edu-icon"><i class="fas fa-book-open"></i></div></div>
                     <h3 class="edu-degree">SSLC (10th Grade)</h3>
-                    <p class="edu-school">Aacharya Higher Secondary School</p>
+                    <p class="edu-school">Acharya Hr. Sec School</p>
                     <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Edappadi, Salem, Tamil Nadu</p>
                     <div class="edu-meta"><span>Completed 2021</span><span>All Pass</span></div>
                     <p class="edu-board"><i class="fas fa-award"></i> State Board (Tamil Nadu)</p>
@@ -236,28 +236,6 @@
                     });
             });
 
-            // Lightbox Modal Logic
-            const modal = document.getElementById("image-modal");
-            const modalImg = document.getElementById("modal-img");
-            const captionText = document.getElementById("caption");
-            
-            document.querySelectorAll(".cert-img").forEach(img => {
-                img.onclick = function() {
-                    modal.style.display = "flex"; 
-                    setTimeout(() => modal.classList.add("show"), 10);
-                    modalImg.src = this.src;
-                    captionText.innerHTML = this.alt;
-                }
-            });
-
-            const closeModalFunc = () => {
-                modal.classList.remove("show");
-                setTimeout(() => { modal.style.display = "none"; }, 300);
-            };
-
-            document.querySelector(".close-modal").onclick = closeModalFunc;
-            window.onclick = (event) => { if (event.target == modal) closeModalFunc(); };
-
             // Typing Effect
             const textElement = document.querySelector('.change-content');
             const words = ['Software Engineer', 'Full Stack Developer', 'Problem Solver'];
@@ -274,10 +252,69 @@
             }
             typeEffect();
 
+            // --- Updated Mobile Menu Logic ---
             const mobileMenu = document.getElementById('mobile-menu');
             const navMenu = document.getElementById('nav-menu');
-            mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+            const navLinks = document.querySelectorAll('.navLinks');
+
+            mobileMenu.addEventListener('click', () => { 
+                navMenu.classList.toggle('active'); 
+            });
+
+            // Auto-close menu on link click (CRITICAL FOR ANDROID)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("modal-img");
+            const captionText = document.getElementById("caption");
+            
+            document.querySelectorAll(".cert-img").forEach(img => {
+                img.onclick = function() { 
+                    modal.style.display = "flex"; 
+                    setTimeout(() => modal.classList.add("show"), 10);
+                    modalImg.src = this.src; 
+                    captionText.innerHTML = this.alt;
+                }
+            });
+            
+            const closeModal = () => {
+                modal.classList.remove("show");
+                setTimeout(() => { modal.style.display = "none"; }, 300);
+            };
+
+            document.querySelector(".close-modal").onclick = closeModal;
+            window.onclick = (event) => { if (event.target == modal) closeModal(); };
         });
+        document.addEventListener("DOMContentLoaded", () => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.navLinks');
+
+    // 1. Existing Toggle Logic
+    mobileMenu.addEventListener('click', () => { 
+        navMenu.classList.toggle('active'); 
+    });
+
+    // 2. NEW: Auto-close logic for Android/Mobile
+    // This loops through every link and removes the 'active' class when clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // 3. OPTIONAL: Close menu if user clicks anywhere outside the navbar
+    document.addEventListener('click', (event) => {
+        const isClickInside = navMenu.contains(event.target) || mobileMenu.contains(event.target);
+        if (!isClickInside && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
+    });
+});
     </script>
 </body>
 </html>
