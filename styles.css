@@ -11,11 +11,11 @@ html {
     scroll-behavior: smooth;
 }
 
-/* --- "TRUST & STABILITY" BLUE COLOR PALETTE --- */
+/* --- UPDATED FOR BETTER VISIBILITY --- */
 :root {
     --bg-color: #f4f9fd;          
-    --text-color: #1a2b4c;        
-    --text-muted: #64748b;        
+    --text-color: #0f172a;        /* Darker Navy for maximum visibility */
+    --text-muted: #334155;        /* Darker Slate for readability */
     
     --google-blue: #0062ff;       
     --google-blue-hover: #004bcc; 
@@ -26,7 +26,7 @@ html {
     --google-green: #34a853;      
     
     --card-bg: #ffffff;           
-    --card-border: #e0e7ff;       
+    --card-border: #e2e8f0;       
     
     --shadow-1: 0 4px 6px -1px rgba(0, 98, 255, 0.08), 0 2px 4px -1px rgba(0, 98, 255, 0.04);
     --shadow-2: 0 10px 15px -3px rgba(0, 98, 255, 0.12), 0 4px 6px -2px rgba(0, 98, 255, 0.06);
@@ -833,10 +833,28 @@ section {
     }
 
     .my-name {
-        font-size: 2.4rem;
+        /* UPDATED: FORCED ONE LINE ON MOBILE */
+        font-size: 2.0rem; /* Adjusted for width fitting */
         line-height: 1.2;
         margin-bottom: 10px;
-        white-space: normal !important;
+        white-space: nowrap !important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        width: 100%;
+    }
+
+    .role-text {
+        font-size: 1.4rem;
+        color: var(--text-muted);
+        margin-bottom: 25px;
+        white-space: nowrap !important; /* One line for role */
+    }
+
+    .about-p {
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.6;
     }
 
     .skills-grid {
@@ -862,7 +880,7 @@ section {
     }
     
     .modal-content {
-        max-height: 60vh; /* Reduced height for smaller mobile screens */
+        max-height: 60vh;
     }
     
     .close-modal {
