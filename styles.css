@@ -54,6 +54,7 @@ h1, h2, h3 { line-height: 1.2; font-weight: 500; }
 .highlight { color: var(--google-blue); }
 
 /* ================= Navigation (Desktop) ================= */
+/* ================= Navigation (Desktop) ================= */
 .header {
     position: fixed;
     top: 25px;
@@ -66,7 +67,7 @@ h1, h2, h3 { line-height: 1.2; font-weight: 500; }
 .navbar {
     max-width: 900px;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 10px 25px; /* Slightly increased side padding */
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -74,9 +75,18 @@ h1, h2, h3 { line-height: 1.2; font-weight: 500; }
     border: 1px solid rgba(255, 255, 255, 0.6);
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* This pushes the logo left and menu right */
     align-items: center;
     transition: var(--transition);
+}
+
+/* New Logo Styles */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    letter-spacing: 1px;
 }
 
 .nav-menu {
