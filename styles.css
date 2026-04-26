@@ -11,11 +11,11 @@ html {
     scroll-behavior: smooth;
 }
 
-/* --- UPDATED FOR BETTER VISIBILITY --- */
+/* --- LIGHT MODE (DEFAULT) --- */
 :root {
     --bg-color: #f4f9fd;          
-    --text-color: #0f172a;        /* Darker Navy for maximum visibility */
-    --text-muted: #334155;        /* Darker Slate for readability */
+    --text-color: #0f172a;        
+    --text-muted: #334155;        
     
     --google-blue: #0062ff;       
     --google-blue-hover: #004bcc; 
@@ -32,6 +32,27 @@ html {
     --shadow-2: 0 10px 15px -3px rgba(0, 98, 255, 0.12), 0 4px 6px -2px rgba(0, 98, 255, 0.06);
     
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- DARK MODE --- */
+body.dark-mode {
+    --bg-color: #000000;          
+    --text-color: #ffffff;        
+    --text-muted: #b0b0b0;        
+    
+    --google-blue: #00d2ff;       
+    --google-blue-hover: #00b8db; 
+    --accent-light: #7dd3fc;      
+    
+    --google-red: #ff6b6b;        
+    --google-yellow: #fbbf24;     
+    --google-green: #4ade80;      
+    
+    --card-bg: #1a1a1a;           
+    --card-border: #333333;       
+    
+    --shadow-1: 0 4px 6px -1px rgba(0, 210, 255, 0.15), 0 2px 4px -1px rgba(0, 210, 255, 0.08);
+    --shadow-2: 0 10px 15px -3px rgba(0, 210, 255, 0.2), 0 4px 6px -2px rgba(0, 210, 255, 0.12);
 }
 
 body {
@@ -83,6 +104,11 @@ h1, h2, h3 {
     align-items: center;
 }
 
+body.dark-mode .navbar {
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.15);
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
@@ -95,6 +121,12 @@ h1, h2, h3 {
     display: flex;
     list-style: none;
     gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-menu li {
+    display: flex;
+    align-items: center;
 }
 
 .navLinks {
@@ -112,12 +144,40 @@ h1, h2, h3 {
     color: var(--google-blue);
 }
 
+body.dark-mode .navLinks:hover {
+    background-color: rgba(0, 210, 255, 0.15);
+    color: var(--google-blue);
+}
+
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
     color: var(--text-color);
     cursor: pointer;
     padding: 5px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0, 98, 255, 0.08);
+    color: var(--google-blue);
+}
+
+body.dark-mode .theme-toggle:hover {
+    background-color: rgba(0, 210, 255, 0.15);
 }
 
 /* ================= Sections Layout ================= */
@@ -168,15 +228,19 @@ section {
 }
 
 .secondary-btn {
-    background-color: #ffffff;
+    background-color: transparent;
     color: var(--google-blue);
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--google-blue);
 }
 
 .secondary-btn:hover {
-    background-color: #f4f9fd;
+    background-color: rgba(0, 98, 255, 0.08);
     border-color: var(--google-blue);
     transform: translateY(-2px);
+}
+
+body.dark-mode .secondary-btn:hover {
+    background-color: rgba(0, 210, 255, 0.15);
 }
 
 .small-btn {
@@ -198,8 +262,8 @@ section {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background-color: #ffffff;
-    color: #555;
+    background-color: var(--card-bg);
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 1.2rem;
     border: 1px solid var(--card-border);
@@ -265,7 +329,7 @@ section {
     height: 320px;
     object-fit: cover;
     border-radius: 50%;
-    border: 6px solid #fff;
+    border: 6px solid var(--card-bg);
     box-shadow: var(--shadow-2);
     transition: var(--transition);
 }
@@ -357,7 +421,7 @@ section {
     width: 100%;
     height: 200px;
     border-bottom: 1px solid var(--card-border);
-    background: #f4f9fd;
+    background: var(--card-bg);
     overflow: hidden;
     display: flex; /* Center the image if it doesn't fill */
     align-items: center;
@@ -465,7 +529,7 @@ section {
 
 #caption {
     margin-top: 20px;
-    color: #f8fafc;
+    color: var(--text-color);
     font-size: 1.1rem;
     font-weight: 500;
     text-align: center;
@@ -476,7 +540,7 @@ section {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #fff;
+    color: var(--text-color);
     font-size: 45px;
     background: rgba(0,0,0,0.5);
     width: 50px;
@@ -540,7 +604,7 @@ section {
 }
 
 .edu-icon {
-    background-color: #fff3e0;
+    background-color: rgba(251, 191, 36, 0.1);
     color: var(--google-yellow);
     width: 50px;
     height: 50px;
@@ -549,7 +613,7 @@ section {
     justify-content: center;
     border-radius: 12px;
     font-size: 1.5rem;
-    border: 1px solid #ffe0b2;
+    border: 1px solid rgba(251, 191, 36, 0.3);
 }
 
 .edu-status {
@@ -613,7 +677,7 @@ section {
 }
 
 .edu-progress {
-    background-color: #e2e8f0;
+    background-color: var(--card-border);
     height: 4px;
     border-radius: 2px;
     width: 100%;
@@ -683,8 +747,9 @@ section {
     align-items: center;
     width: 32px;
     height: 32px;
-    background-color: var(--text-color);
-    color: #ffffff;
+    background-color: var(--card-bg);
+    color: var(--google-blue);
+    border: 2px solid var(--google-blue);
     border-radius: 50%;
     text-decoration: none;
     font-size: 0.85rem;
@@ -693,13 +758,14 @@ section {
 
 .social-links-small a:hover {
     background-color: var(--google-blue);
+    color: #ffffff;
     transform: translateY(-3px);
 }
 
 .contact-form-wrapper {
     flex: 1.5;
     padding: 3rem;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
 }
 
 .modern-form {
@@ -730,8 +796,8 @@ section {
 .modern-form textarea {
     width: 100%;
     padding: 15px 20px;
-    background-color: #f8fafc;
-    border: 1px solid transparent;
+    background-color: rgba(0, 98, 255, 0.05);
+    border: 1px solid var(--card-border);
     border-radius: 8px;
     font-family: inherit;
     font-size: 0.95rem;
@@ -739,16 +805,27 @@ section {
     transition: var(--transition);
 }
 
+body.dark-mode .modern-form input,
+body.dark-mode .modern-form textarea {
+    background-color: rgba(0, 210, 255, 0.08);
+}
+
 .modern-form input:focus, 
 .modern-form textarea:focus {
     outline: none;
-    background-color: #ffffff;
+    background-color: rgba(0, 98, 255, 0.1);
     border: 1px solid var(--google-blue);
-    box-shadow: 0 0 0 4px rgba(0, 98, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(0, 98, 255, 0.15);
+}
+
+body.dark-mode .modern-form input:focus,
+body.dark-mode .modern-form textarea:focus {
+    background-color: rgba(0, 210, 255, 0.12);
+    box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.2);
 }
 
 .btn-dark-submit {
-    background-color: #0f172a;
+    background-color: var(--google-blue);
     color: #ffffff;
     border: none;
     padding: 16px;
@@ -794,7 +871,7 @@ section {
         left: 0;
         right: 0;
         width: 100%;
-        background: #fff;
+        background: var(--card-bg);
         flex-direction: column;
         gap: 0;
         border-radius: 12px;
@@ -821,9 +898,18 @@ section {
         padding: 15px;
         border-radius: 0;
         font-size: 1.1rem;
-        border-bottom: 1px solid #f4f9fd;
+        border-bottom: 1px solid var(--card-border);
         color: var(--text-color);
         width: 100%;
+    }
+
+    .theme-toggle {
+        padding: 12px 15px !important;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--card-border);
+        border-radius: 0 !important;
+        font-size: 1.1rem;
     }
     
     #home {
