@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Initialize EmailJS Engine safely
+    // =========================================================================
+    // 1. EmailJS Contact Form Handler
+    // =========================================================================
     emailjs.init("lTCVsuZoWg3iI5usd");
 
     const contactForm = document.getElementById('contact-form');
@@ -25,7 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Dynamic Header Typing Effect
+    // =========================================================================
+    // 2. Dynamic Typing Effect (Hero Section)
+    // =========================================================================
     const textElement = document.querySelector('.change-content');
     const words = ['Software Engineer', 'Full Stack Developer', 'Problem Solver'];
     let wordIndex = 0, charIndex = 0, isDeleting = false;
@@ -52,7 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     typeEffect();
 
-    // Mobile Navbar Control Layouts
+    // =========================================================================
+    // 3. Responsive Mobile Navigation Menu
+    // =========================================================================
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.navLinks');
@@ -69,7 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Dark/Light State Switch Mechanics
+    // =========================================================================
+    // 4. Dark/Light Theme Switching System
+    // =========================================================================
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     if (themeToggleBtn) {
         const themeIcon = themeToggleBtn.querySelector('i');
@@ -81,10 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Infinite Stagger Scroll Entry Engine (Intersection Observer Setup)
+    // =========================================================================
+    // 5. Infinite Stagger Scroll Entry Engine (Intersection Observer Setup)
+    // =========================================================================
     const revealElements = document.querySelectorAll('.reveal');
     
-    const grids = document.querySelectorAll('.skills-grid, .project-grid, .cert-grid, .edu-grid');
+    // Target all grid and sequential block wrappers, including the new timeline container
+    const grids = document.querySelectorAll('.skills-grid, .project-grid, .cert-grid, .edu-grid, .timeline-container');
     grids.forEach(grid => {
         const items = grid.querySelectorAll('.reveal');
         items.forEach((item, index) => {
@@ -97,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
                 
-                // Animate progress indicators inside education blocks smoothly
+                // Animate progress indicator bars inside education cards smoothly
                 const progressBars = entry.target.querySelectorAll('.animate-bar');
                 progressBars.forEach(bar => {
                     const targetWidth = bar.style.getPropertyValue('--target-width');
@@ -105,8 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     bar.style.width = targetWidth;
                 });
             } else {
-                // Reset state when scrolling out of view to re-trigger animation seamlessly
-                if(entry.target.closest('#home') === null) {
+                // Reset reveal states when scrolling out of viewport to re-trigger seamlessly
+                if (entry.target.closest('#home') === null) {
                     entry.target.classList.remove('active');
                     const progressBars = entry.target.querySelectorAll('.animate-bar');
                     progressBars.forEach(bar => {
@@ -123,7 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     revealElements.forEach(element => revealObserver.observe(element));
 
-    // Lightbox Modal Visual Triggers
+    // =========================================================================
+    // 6. Lightbox Certificate Image Modal System
+    // =========================================================================
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img");
     const captionText = document.getElementById("caption");
