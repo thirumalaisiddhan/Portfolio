@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#f4f9fd"> 
+    <title>Thirumalai Siddhan | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header class="header">
+        <nav class="navbar" id="navbar">
+            <a href="#home" class="logo">TMS</a>
+            <div class="nav-right-actions" style="display: flex; align-items: center; gap: 0.5rem;">
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="navLinks">Home</a></li>
+                <li><a href="#skills" class="navLinks">Skills</a></li>
+                <li><a href="#projects" class="navLinks">Projects</a></li>
+                <li><a href="#certifications" class="navLinks">Certifications</a></li>
+                <li><a href="#education" class="navLinks">Education</a></li>
+                <li><a href="#contact" class="navLinks">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="home-content section-container">
+            <div class="home-text reveal slide-left">
+                <h1 class="my-name">Hi, I'm <span class="highlight">Thirumalai Siddhan</span></h1>
+                <h2 class="role-text">I am a <span class="change-content"></span></h2>
+                <p class="about-p">Aspiring Full Stack Developer with a solid foundation in HTML, CSS, JavaScript, and Java. Eager to contribute to innovative projects while continuously enhancing my technical expertise.</p>
+                <div class="btn-group">
+                    <a href="Thirumalai_Resume.pdf" download="Thirumalai_Resume.pdf" class="btn primary-btn">Download Resume</a> 
+                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                </div>
+            </div>
+            <div class="home-image reveal slide-right">
+                <div class="img-container">
+                    <img src="logo.png" alt="Thirumalai Siddhan Profile Image" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-container">
+            <div class="title-container reveal">
+                <h1 class="section-title">My Technical Skills</h1>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card reveal"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+                <div class="skill-card reveal"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+                <div class="skill-card reveal"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                <div class="skill-card reveal"><i class="devicon-react-original colored"></i><span>React</span></div>
+                <div class="skill-card reveal"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+                <div class="skill-card reveal"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+                <div class="skill-card reveal"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+                <div class="skill-card reveal"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="section-container">
+            <div class="title-container reveal">
+                <h2 class="section-title">My Projects</h2>
+            </div>
+
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card reveal">
+                    <div class="project-img-container">
+                        <img src="ATM.png" alt="ATM Simulator">
+                    </div>
+                    <div class="project-content">
+                        <span class="project-number">01</span>
+                        <h3>ATM Simulator System</h3>
+                        <p>A desktop banking application developed using Java Swing and MySQL that simulates real ATM operations including account creation, login, deposit, withdrawal, balance enquiry, mini statement and PIN change.</p>
+                        <div class="tech-stack">
+                            <span>Java</span>
+                            <span>Swing</span>
+                            <span>JDBC</span>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="github-btn"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card reveal">
+                    <div class="project-img-container">
+                        <img src="E-commerce.png" alt="E-commerce Clone">
+                    </div>
+                    <div class="project-content">
+                        <span class="project-number">02</span>
+                        <h3>Flipkart Clone</h3>
+                        <p>A responsive e-commerce website inspired by Flipkart with shopping cart, wishlist, product categories and search functionality.</p>
+                        <div class="tech-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="github-btn"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card reveal">
+                    <div class="project-img-container">
+                        <img src="todo-list.png" alt="Portfolio Website Visual">
+                    </div>
+                    <div class="project-content">
+                        <span class="project-number">03</span>
+                        <h3>Portfolio Website</h3>
+                        <p>A responsive personal portfolio showcasing my skills, projects, certifications and achievements with modern UI, dynamic theme switching, and smooth animations.</p>
+                        <div class="tech-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="github-btn"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all-container reveal">
+                <a href="https://github.com/thirumalaisiddhan" target="_blank" class="view-all-btn">
+                    <i class="fab fa-github"></i> View All on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="section-container">
+            <div class="title-container reveal">
+                <h1 class="section-title">Certifications</h1>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrapper"><img src="Java Full-stack.jpeg" class="cert-img" alt="Java Full Stack Internship"></div>
+                    <div class="cert-info"><h3>Java Full Stack Internship</h3><p>EduSkills & AICTE</p></div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrapper"><img src="HCL GUVI Certification - M04VX6m0b36pc111w7.jpg" class="cert-img" alt="Java Completion Certificate"></div>
+                    <div class="cert-info"><h3>Java Completion</h3><p>GUVI / HCL</p></div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrapper"><img src="Cloud computing.jfif" class="cert-img" alt="Cloud Computing Elite Certification"></div>
+                    <div class="cert-info"><h3>Cloud Computing (Elite)</h3><p>NPTEL (IIT Kharagpur)</p></div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrapper"><img src="AI Fundamentals.jpg" class="cert-img" alt="AI Fundamentals"></div>
+                    <div class="cert-info"><h3>AI Fundamentals</h3><p>Google / Coursera</p></div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-img-wrapper"><img src="Preparing Data for Analysis with Microsoft Excel.jpg" class="cert-img" alt="Preparing Data for Analysis with Microsoft Excel"></div>
+                    <div class="cert-info"><h3>Preparing Data for Data Analysis</h3><p>Microsoft / Coursera</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-container" style="text-align: center;">
+            <div class="edu-badge reveal">ACADEMIC BACKGROUND</div>
+            <div class="title-container reveal">
+                <h1 class="section-title">My Education</h1>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card reveal">
+                    <div class="edu-card-header"><div class="edu-icon"><i class="fas fa-university"></i></div><span class="edu-status">Current</span></div>
+                    <h3 class="edu-degree">B.E. Computer Science Engineering</h3>
+                    <p class="edu-school">K S R Institution for Engineering and Technology</p>
+                    <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Namakkal, Tamil Nadu</p>
+                    <div class="edu-meta"><span>2023 – 2027</span><span>CGPA: 7.9 / 10</span></div>
+                    <div class="edu-progress"><div class="edu-progress-bar animate-bar" style="--target-width: 79%;"></div></div>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="edu-card-header"><div class="edu-icon"><i class="fas fa-school"></i></div></div>
+                    <h3 class="edu-degree">Higher Secondary (12th Grade)</h3>
+                    <p class="edu-school">Acharya Hr. Sec School</p>
+                    <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Edappadi, Salem, Tamil Nadu</p>
+                    <div class="edu-meta"><span>Completed 2023</span><span>70.6%</span></div>
+                    <p class="edu-board"><i class="fas fa-award"></i> State Board (Tamil Nadu)</p>
+                    <div class="edu-progress"><div class="edu-progress-bar animate-bar" style="--target-width: 70.6%;"></div></div>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="edu-card-header"><div class="edu-icon"><i class="fas fa-book-open"></i></div></div>
+                    <h3 class="edu-degree">SSLC (10th Grade)</h3>
+                    <p class="edu-school">Acharya Hr. Sec School</p>
+                    <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Edappadi, Salem, Tamil Nadu</p>
+                    <div class="edu-meta"><span>Completed 2021</span><span>All Pass</span></div>
+                    <p class="edu-board"><i class="fas fa-award"></i> State Board (Tamil Nadu)</p>
+                    <div class="edu-progress"><div class="edu-progress-bar animate-bar" style="--target-width: 100%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-container">
+            <div class="contact-card-modern reveal">
+                <div class="contact-info">
+                    <h2>Get in touch</h2>
+                    <div class="info-group"><span class="info-label">Email:</span><p class="info-text">rthirumalaisiddhan@gmail.com</p></div>
+                    <div class="info-group"><span class="info-label">Phone:</span><p class="info-text">+91 9585495544</p></div>
+                    <div class="info-group"><span class="info-label">Address:</span><p class="info-text">Edappadi, Salem, Tamil Nadu</p></div>
+                    
+                    <div class="info-group">
+                        <span class="info-label">Follow me</span>
+                        <div class="social-links-small">
+                            <a href="https://www.instagram.com/thirumalaisiddhan" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://m.facebook.com/thirumalaisiddhan/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/in/thirumalaisiddhan" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/thirumalaisiddhan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" class="modern-form">
+                        <div class="form-row">
+                            <div class="input-col">
+                                <label>Your Name</label>
+                                <input type="text" name="from_name" placeholder="Your full name" required>
+                            </div>
+                            <div class="input-col">
+                                <label>Email address</label>
+                                <input type="email" name="user_email" placeholder="Your email address" required>
+                            </div>
+                        </div>
+                        <div class="input-col">
+                            <label>Message</label>
+                            <textarea name="message" rows="6" placeholder="Write something...." required></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="btn-dark-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="image-modal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div id="caption"></div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Thirumalai Siddhan. All Rights Reserved.</p>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
